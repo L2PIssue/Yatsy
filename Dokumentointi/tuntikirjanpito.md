@@ -1,4 +1,3 @@
-#### 1.9.
-  * Projektin alustaminen
-  * Koodin aloittaminen
-  Käytetty aika: 3h
+1.9. | 3h | Projektin alustaminen ja koodin aloittaminen
+---------------------------------------------------------
+     |    |
