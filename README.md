@@ -1,1 +1,3 @@
-# Yatsy
+## Yatsy
+
+Ohjelmoinnin harjoitustyö
