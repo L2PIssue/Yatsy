@@ -1,7 +1,7 @@
 
 package main;
 
-import peli.Heitto;
+import peli.Peli;
 
 /**
  *
@@ -10,8 +10,9 @@ import peli.Heitto;
 public class Main {
 
     public static void main(String[] args) {
-        Heitto heitto = new Heitto();
-        heitto.heitaNopat(3);
+        Peli yatsy = new Peli();
+        yatsy.run();
+       
     }
 
 }

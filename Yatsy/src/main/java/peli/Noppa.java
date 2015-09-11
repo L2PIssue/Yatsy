@@ -1,22 +1,45 @@
 
 package peli;
 
+import java.util.Random;
+
 /**
  *
  * @author Miia Rämö
  */
 
 public class Noppa {
-    private int luku;
+    private Random random;
+    private int silmaluku;
+    private boolean lukossa;
     
     public Noppa() {
-        luku = (int) (Math.random()*6) + 1;
+        this.random = new Random();
+        this.silmaluku = random.nextInt(6) + 1;
+        this.lukossa = false;
     }
     
-    public int heitaNoppa() {
-        this.luku = (int) (Math.random()*6) + 1;
-        return luku;
+    public int getSilmaluku() {
+        return this.silmaluku;
     }
     
+    public boolean onkoLukittu() {
+        return this.lukossa;
+    }
+    
+    public void muutaLukitus() {
+        this.lukossa = !this.lukossa;
+    }
+    
+    public void heitaNoppa() {
+        if (!this.lukossa) {
+            this.silmaluku = random.nextInt(6) + 1;
+        }
+    }
+    
+    @Override
+    public String toString() {
+        return Integer.toString(silmaluku);
+    }
     
 }
