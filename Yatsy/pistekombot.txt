@@ -1,0 +1,18 @@
+Ykköset
+Kakkoset
+Kolmoset
+Neloset
+Vitoset
+Kutoset
+Välisumma
+Bonus
+Yksi pari
+Kaksi paria
+Kolme samaa
+Neljä samaa
+Pieni suora
+Suuri suora
+Täyskäsi
+Yatsy
+Sattuma
+Loppusumma

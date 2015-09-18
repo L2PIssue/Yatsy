@@ -31,10 +31,11 @@ public class Noppa {
         this.lukossa = !this.lukossa;
     }
     
-    public void heitaNoppa() {
+    public int heitaNoppa() {
         if (!this.lukossa) {
             this.silmaluku = random.nextInt(6) + 1;
         }
+        return silmaluku;
     }
     
     @Override
