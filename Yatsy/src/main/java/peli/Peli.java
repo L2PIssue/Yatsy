@@ -8,14 +8,12 @@ public class Peli {
     public Noppa[] nopat;
     private NoppaKombinaatiot kombinaatiot;
     private int heittoja;
-    private int kierros;
     
     public Peli() {
         this.alustaNopat();
         this.pelaaja = new Pelaaja();
         this.kombinaatiot = new NoppaKombinaatiot();
         this.heittoja = 0;
-        this.kierros = 0;
     }
     
     private void alustaNopat() {
@@ -26,7 +24,7 @@ public class Peli {
     }
     
     public void noppienHeitto() {
-        if (heittoja < 3 || kierros < 15) {
+        if (heittoja < 3) {
             for (Noppa noppa : nopat) {
                 noppa.heitaNoppa();
             }
@@ -34,10 +32,7 @@ public class Peli {
         }
     }
     
-    public void tulostaNopat() {
-        for (Noppa noppa : nopat) {
-            System.out.print(noppa.toString() + " ");
-        }
-        System.out.println("");
+    public int getPelaajanPisteet(int index) {
+        return pelaaja.getPisteet(index);
     }
 }

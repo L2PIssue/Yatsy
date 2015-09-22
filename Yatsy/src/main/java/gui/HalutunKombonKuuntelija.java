@@ -1,17 +1,18 @@
 package gui;
-/**
- *
- * @author Miia Rämö
- */
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import peli.Peli;
 
-public class Nopanheittaja implements ActionListener {
+/**
+ *
+ * @author Miia Rämö
+ */
+public class HalutunKombonKuuntelija  implements ActionListener {
     private Peli peli;
     private Kayttoliittyma kali;
     
-    public Nopanheittaja(Kayttoliittyma kali, Peli peli) {
+    public HalutunKombonKuuntelija (Kayttoliittyma kali, Peli peli) {
         this.peli = peli;
         this.kali = kali;
     }
@@ -21,4 +22,4 @@ public class Nopanheittaja implements ActionListener {
         peli.noppienHeitto();
         kali.paivita();
     }
-}
+} 

@@ -12,17 +12,27 @@ public class Pelaaja {
     public Pelaaja() {
         this.pisteet = new int[18];
         this.onkoLisatty = new boolean[18];
-        for (int i = 0; i < 18; i++) {
-            this.onkoLisatty[i] = false;
-        }
     }
 
     public int getPisteet(int index) {
         return pisteet[index];
     }
     
-    public void setPisteet(int maara){
-        pisteet[17] = maara;
+    private void laskeValisumma(){
+        for (int i = 0; i < 6; i++) {
+            pisteet[6] += pisteet[i];
+        }
+        if (pisteet[6] >= 63) {
+            pisteet[7] = 50;
+        }
+    }
+    
+    public void laskeLoppusumma(){
+        this.laskeValisumma();
+        for (int i = 6; i < 17; i++) {
+            pisteet[17] += pisteet[i];
+        }
+        return;
     }
 
     public boolean getOnkoLisatty(int index) {
@@ -57,7 +67,7 @@ public class Pelaaja {
 //    pisteet[3] neloset;
 //    pisteet[4] vitoset;
 //    pisteet[5] kutoset;
-//    pisteet[6] score;
+//    pisteet[6] välisumma;
 //    pisteet[7] bonus;
 //    pisteet[8] yksiPari;
 //    pisteet[9] kaksiParia;

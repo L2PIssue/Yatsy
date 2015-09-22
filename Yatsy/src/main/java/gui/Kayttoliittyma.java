@@ -17,30 +17,33 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.WindowConstants;
+import peli.Peli;
 
 public class Kayttoliittyma implements Runnable {
 
     private ArrayList<String> pistekombot;
+    private JButton[] noppiennapit;
+    private JTextArea[] pisteet;
     private JFrame frame;
     private Scanner lukija;
     private Color tausta;
+    private Peli peli;
 
     public Kayttoliittyma() {
+        frame = new JFrame("Yatsy");
         this.tausta = new Color(55,176,107);
         this.lueTiedosto(new File("pistekombot.txt"));
+        this.peli = new Peli();
     }
 
     @Override
     public void run() {
-        frame = new JFrame("Yatsy");
         frame.setPreferredSize(new Dimension(300, 500));
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         luoKomponentit(frame.getContentPane());
 
-        frame.pack();
-        frame.setVisible(true);
     }
 
     private void luoKomponentit(Container container) {
@@ -49,6 +52,8 @@ public class Kayttoliittyma implements Runnable {
         container.add(pisteSarake(), BorderLayout.CENTER);
         container.add(noppienNappulat(), BorderLayout.NORTH);
         container.add(noppienHeittoNappi(), BorderLayout.SOUTH);
+        frame.pack();
+        frame.setVisible(true);
     }
     
     private JPanel pisteKombinaatiot() {
@@ -65,28 +70,41 @@ public class Kayttoliittyma implements Runnable {
     
     private JPanel pisteSarake() {
         JPanel pistesarake = new JPanel(new GridLayout(18, 1));
+        pisteet = new JTextArea[17];
         pistesarake.setBackground(tausta);
         for (int i = 0; i < 18; i++) {
-            
-            pistesarake.add(new JTextArea("0"));
+            pistesarake.add(new JTextArea(peli.getPelaajanPisteet(i) + ""));
         }
+        
         
         return pistesarake;
     }
     
     private JPanel noppienNappulat() {
         JPanel nopat = new JPanel(new GridLayout(1, 5));
+        noppiennapit = new JButton[5];
+        for (int i = 0; i < 5; i++) {
+            noppiennapit[i] = new JButton(peli.nopat[i] + "");
+        }
         nopat.setBackground(tausta);
         for (int i = 0; i < 5; i++) {
-            nopat.add(new JButton());
+            nopat.add(noppiennapit[i]);
+            System.out.println(peli.nopat[i]);
         }
         
         return nopat;
     }
     
+    public void paivita() {
+        for (int i = 0; i < 5; i++) {
+            this.noppiennapit[i].setText(peli.nopat[i] + "");
+        }
+        frame.repaint();
+    }
+    
     private JButton noppienHeittoNappi() {
         JButton nappi = new JButton("Heitä nopat");
-        nappi.addActionListener(new Nopanheittaja());
+        nappi.addActionListener(new Nopanheittaja(this, peli));
         return nappi;
     }
 
