@@ -18,7 +18,8 @@ public class Pelaaja {
         return pisteet[index];
     }
     
-    private void laskeValisumma(){
+    private void laskeValisumma() {
+        pisteet[6] = 0;
         for (int i = 0; i < 6; i++) {
             pisteet[6] += pisteet[i];
         }

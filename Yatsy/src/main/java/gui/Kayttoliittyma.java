@@ -16,6 +16,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 import peli.Peli;
 
@@ -23,7 +24,7 @@ public class Kayttoliittyma implements Runnable {
 
     private ArrayList<String> pistekombot;
     private JButton[] noppiennapit;
-    private JTextArea[] pisteet;
+    private JTextField[] pisteet;
     private JFrame frame;
     private Scanner lukija;
     private Color tausta;
@@ -79,10 +80,12 @@ public class Kayttoliittyma implements Runnable {
     
     private JPanel pisteSarake() {
         JPanel pistesarake = new JPanel(new GridLayout(18, 1));
-        pisteet = new JTextArea[17];
+        pisteet = new JTextField[18];
         pistesarake.setBackground(tausta);
         for (int i = 0; i < 18; i++) {
-            pistesarake.add(new JTextArea(peli.getPelaajanPisteet(i) + ""));
+            pisteet[i] = new JTextField(peli.getPelaajanPisteet(i) + "");
+            pisteet[i].setEditable(false);
+            pistesarake.add(pisteet[i]);
         }
         
         
@@ -118,6 +121,9 @@ public class Kayttoliittyma implements Runnable {
     public void paivita() {
         for (int i = 0; i < 5; i++) {
             this.noppiennapit[i].setText(peli.nopat[i] + "");
+        }
+        for (int i = 0; i < 18; i++) {
+            this.pisteet[i].setText(peli.getPelaajanPisteet(i) + "");
         }
         frame.repaint();
     }
