@@ -7,7 +7,7 @@ public class Peli {
     private Pelaaja pelaaja;
     public Noppa[] nopat;
     private NoppaKombinaatiot kombinaatiot;
-    private int heittoja;
+    public int heittoja;
     
     public Peli() {
         this.alustaNopat();
@@ -32,7 +32,21 @@ public class Peli {
         }
     }
     
+    public Noppa[] getNopat() {
+        return nopat;
+    }
+    
+    public void asetaPisteetPelaajalle(int paljonko, int mihin) {
+        pelaaja.asetaPisteet(paljonko, mihin);
+    }
+    
     public int getPelaajanPisteet(int index) {
         return pelaaja.getPisteet(index);
     }
+    
+    public void nollaaHeitot() {
+        this.heittoja = 0;
+    }
+    
+    
 }

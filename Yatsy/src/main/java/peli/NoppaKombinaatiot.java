@@ -7,6 +7,20 @@ import java.util.ArrayList;
  * @author Miia Rämö
  */
 public class NoppaKombinaatiot {
+    
+    public int ykkoset(Noppa[] nopat) {
+        int ykkosia = 0;
+        ArrayList<Integer> luvut = new ArrayList();
+        for (int i = 0; i < 5; i++) {
+            luvut.add(nopat[i].getSilmaluku());
+        }
+        for (Integer luku : luvut) {
+            if (luku.equals(1)) {
+                ykkosia += luku;
+            }
+        }
+        return ykkosia;
+    }
 
     public int pieniSuora(Noppa[] nopat) {
         ArrayList<Integer> luvut = new ArrayList();
@@ -32,6 +46,16 @@ public class NoppaKombinaatiot {
         return 0;
     }
 
+    public int kombotYkkosistaKutosiin(Noppa[] nopat, int numero) {
+        int summa = 0;
+        for (Noppa noppa : nopat) {
+            if (noppa.getSilmaluku() == numero) {
+                summa += numero;
+            }
+        }
+        return summa;
+    }
+    
     public int montakoSamaaNumeroa(Noppa[] nopat, int numero) {
         int maara = 0;
         for (Noppa noppa : nopat) {
@@ -112,7 +136,7 @@ public class NoppaKombinaatiot {
         return 0;
     }
 
-    public int yatzy(Noppa[] nopat) {
+    public int yatsy(Noppa[] nopat) {
         int ekaNoppa = nopat[0].getSilmaluku();
         for (Noppa noppa : nopat) {
             if (noppa.getSilmaluku() != ekaNoppa) {

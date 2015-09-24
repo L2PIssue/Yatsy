@@ -57,13 +57,22 @@ public class Kayttoliittyma implements Runnable {
     }
     
     private JPanel pisteKombinaatiot() {
+        JButton[] napit = new JButton[18];
+        int apuluku = 0;
         JPanel kombinaatiot = new JPanel(new GridLayout(18, 1));
         kombinaatiot.setBackground(tausta);
         for (String kombo : pistekombot) {
-            kombinaatiot.add(new JButton(kombo));
-//            if (kombo.equals("Välisumma") || kombo.equals("Bonus") || kombo.equals("Loppusumma")) {
-//                
-//            }
+            napit[apuluku] = new JButton(kombo);
+            if (kombo.equals("Loppusumma") || kombo.equals("Välisumma") || kombo.equals("Bonus")) {
+                napit[apuluku].setEnabled(false);
+            }
+            kombinaatiot.add(napit[apuluku]);
+            apuluku++;
+        }
+        apuluku = 0;
+        for (JButton nappi : napit) {
+            nappi.addActionListener(new HalutunKombonKuuntelija(this, peli, pistekombot.get(apuluku)));
+            apuluku++;
         }
         return kombinaatiot;
     }
@@ -89,10 +98,21 @@ public class Kayttoliittyma implements Runnable {
         nopat.setBackground(tausta);
         for (int i = 0; i < 5; i++) {
             nopat.add(noppiennapit[i]);
-            System.out.println(peli.nopat[i]);
         }
         
         return nopat;
+    }
+    
+    public void lukitseNoppienNapit() {
+        for (JButton nappi : noppiennapit) {
+            nappi.setEnabled(false);
+        }
+    }
+    
+    public void vapautaNoppienNapit() {
+        for (JButton nappi : noppiennapit) {
+            nappi.setEnabled(true);
+        }
     }
     
     public void paivita() {

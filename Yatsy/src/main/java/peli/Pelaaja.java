@@ -39,22 +39,17 @@ public class Pelaaja {
         return this.onkoLisatty[index];
     }
 
- boolean asetaPisteet(int paljonko, int mihin) {
+    public boolean asetaPisteet(int paljonko, int mihin) {
         if (paljonko >= 0 && onkoLisatty[mihin] == false) {
             pisteet[mihin] += paljonko;
             onkoLisatty[mihin] = true;
             pisteet[17] += paljonko;
             onkoLisatty[17] = true;
+            
+            System.out.println(paljonko + "");
 
-            if (mihin < 6) {
-                pisteet[6] += paljonko;
-                onkoLisatty[6] = true;
-                
-                if (pisteet[6] >= 63) {
-                    pisteet[7] += 25;
-                    onkoLisatty[7] = true;
-                }
-            }
+            this.laskeValisumma();
+            
             return true;
         }
         return false;
@@ -76,7 +71,7 @@ public class Pelaaja {
 //    pisteet[12] pieniSuora;
 //    pisteet[13] suuriSuora;
 //    pisteet[14] taysiKasi;
-//    pisteet[15] yatzy;
+//    pisteet[15] yatsy;
 //    pisteet[16] sattuma;
-//    pisteet[17] total;
+//    pisteet[17] loppusumma;
 }
