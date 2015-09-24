@@ -2,7 +2,7 @@
 
 
 Pvm  | Käytetty aika | Mitä tehty?
------|---------------|--------------------------------------------------------------------
+-----|---------------|-----------------------------------------------------------
 1.9. | 3h            | Projektin alustaminen ja koodin aloittaminen
 5.9. | 2h            | Pistetaulukkojuttuja
 11.9.| 1h            | Testien aloittelua ja luokkakaavio
@@ -10,4 +10,4 @@ Pvm  | Käytetty aika | Mitä tehty?
 18.9.| 3h            | Käyttöliittymän aloitus
 21.9.| 2h            | Noppien heittämisen lisäys käyttöliittymään + yleistä fiksailua
 22.9.| 1h            | Uusi luokkakaavio sekä testien pohdintaa
-24.9.| 2h            | Käyttöliittymän työstöä. Nyt halutun kombinaation valitseminen tulostaa tekstikäyttöliittymään siitä saadut pisteet.
+24.9.| 2h            | Käyttöliittymän työstöä. Nyt halutun kombinaation valitseminen sijoittaa pisteet oikeaan paikkaan ja päivittää väli- ja loppusumman.
