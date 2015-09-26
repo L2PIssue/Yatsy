@@ -11,3 +11,5 @@ Pvm  | Käytetty aika | Mitä tehty?
 21.9.| 2h            | Noppien heittämisen lisäys käyttöliittymään + yleistä fiksailua
 22.9.| 1h            | Uusi luokkakaavio sekä testien pohdintaa
 24.9.| 2h            | Käyttöliittymän työstöä. Nyt halutun kombinaation valitseminen sijoittaa pisteet oikeaan paikkaan ja päivittää väli- ja loppusumman.
+25.9.| 2h            | Käyttöliittymän noppii lisätty lukitsemisen mahdollistava ominaisuus
+26.9.| 2h            | Nyt peli ilmoittaa lopputuloksen kysyy loputtuaan aloitetaanko uusi
