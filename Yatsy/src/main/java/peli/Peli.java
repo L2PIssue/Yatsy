@@ -4,19 +4,21 @@ package peli;
  * @author Miia Rämö
  */
 public class Peli {
-    private Pelaaja pelaaja;
+    private final Pelaaja pelaaja;
     public Noppa[] nopat;
-    private NoppaKombinaatiot kombinaatiot;
+    private final NoppaKombinaatiot kombinaatiot;
     public int heittoja;
+    public int vuoro;
     
     public Peli() {
         this.alustaNopat();
         this.pelaaja = new Pelaaja();
         this.kombinaatiot = new NoppaKombinaatiot();
-        this.heittoja = 0;
+        this.vuoro = 0;
     }
     
-    private void alustaNopat() {
+    public final void alustaNopat() {
+        this.heittoja = 0;
         nopat = new Noppa[5];
         for (int i = 0; i < 5; i++) {
             nopat[i] = new Noppa();
@@ -32,12 +34,9 @@ public class Peli {
         }
     }
     
-    public Noppa[] getNopat() {
-        return nopat;
-    }
-    
     public void asetaPisteetPelaajalle(int paljonko, int mihin) {
         pelaaja.asetaPisteet(paljonko, mihin);
+        vuoro++;
     }
     
     public int getPelaajanPisteet(int index) {
@@ -47,6 +46,4 @@ public class Peli {
     public void nollaaHeitot() {
         this.heittoja = 0;
     }
-    
-    
 }

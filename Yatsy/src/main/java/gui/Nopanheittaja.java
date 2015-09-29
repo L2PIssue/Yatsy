@@ -19,7 +19,7 @@ public class Nopanheittaja implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent ae) {
         peli.noppienHeitto();
-        if (peli.heittoja == 3) {
+        if (peli.heittoja == 2) {
             kali.lukitseNoppienNapit();
         }
         kali.paivita();

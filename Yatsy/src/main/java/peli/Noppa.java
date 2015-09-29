@@ -37,10 +37,4 @@ public class Noppa {
         }
         return silmaluku;
     }
-    
-    @Override
-    public String toString() {
-        return Integer.toString(silmaluku);
-    }
-    
 }

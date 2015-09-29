@@ -1,7 +1,7 @@
 
 package main;
 
-import gui.Kayttoliittyma;
+import gui.IlmoitusIkkuna;
 import javax.swing.SwingUtilities;
 /**
  *
@@ -10,9 +10,8 @@ import javax.swing.SwingUtilities;
 public class Main {
 
     public static void main(String[] args) {
-        Kayttoliittyma kali = new Kayttoliittyma();
-        SwingUtilities.invokeLater(kali);
-       
+        IlmoitusIkkuna ikkuna = new IlmoitusIkkuna(null, "Tervetuloa pelaamaan yatsya");
+        SwingUtilities.invokeLater(ikkuna);
     }
 
 }

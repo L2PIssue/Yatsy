@@ -13,7 +13,7 @@ public class Pelaaja {
         this.pisteet = new int[18];
         this.onkoLisatty = new boolean[18];
     }
-
+    
     public int getPisteet(int index) {
         return pisteet[index];
     }
@@ -33,7 +33,14 @@ public class Pelaaja {
         for (int i = 6; i < 17; i++) {
             pisteet[17] += pisteet[i];
         }
-        return;
+    }
+    
+    public int getLoppusumma() {
+        return this.getPisteet(17);
+    }
+    
+    public int getValisumma() {
+        return this.getPisteet(6);
     }
 
     public boolean getOnkoLisatty(int index) {
@@ -46,8 +53,6 @@ public class Pelaaja {
             onkoLisatty[mihin] = true;
             pisteet[17] += paljonko;
             onkoLisatty[17] = true;
-            
-            System.out.println(paljonko + "");
 
             this.laskeValisumma();
             

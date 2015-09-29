@@ -36,4 +36,10 @@ public class NoppaTest {
         }
     }
     
+    @Test
+    public void eiHeitaLukittuaNoppaa() {
+        noppa.muutaLukitus();
+        int luku = noppa.getSilmaluku();
+        assertEquals(luku, noppa.heitaNoppa());
+    }
 }
