@@ -14,4 +14,4 @@ Pvm  | Käytetty aika | Mitä tehty?
 25.9.| 2h            | Käyttöliittymän noppii lisätty lukitsemisen mahdollistava ominaisuus
 26.9.| 2h            | Nyt peli ilmoittaa lopputuloksen ja kysyy loputtuaan aloitetaanko uusi
 30.9.| 1h 	     | Pelimukavuuden parantamiseksi lukituille nopille omat kuvat
-2.10.| 2h	     | Luokkakaavio päivitetty
+2.10.| 2h	     | Luokkakaavio päivitetty, pari sekvenssikaaviota, koodin muokkailua
