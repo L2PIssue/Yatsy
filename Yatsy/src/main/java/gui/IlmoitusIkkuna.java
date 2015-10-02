@@ -1,7 +1,6 @@
 package gui;
 
 import java.awt.BorderLayout;
-import java.awt.Label;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -10,12 +9,11 @@ import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 
 public class IlmoitusIkkuna implements Runnable {
-    private Kayttoliittyma kali;
+    private final Kayttoliittyma kali;
     private final JFrame frame = new JFrame("Yatsy");
     private final JPanel panel = new JPanel();
-    private JButton aloituspainike;
-    private JLabel teksti;
-    private IlmoitusIkkunanKuuntelija kuuntelija;
+    private final JButton aloituspainike;
+    private final IlmoitusIkkunanKuuntelija kuuntelija;
 
     public IlmoitusIkkuna(Kayttoliittyma kali, String ilmoitus) {
         this.kuuntelija = new IlmoitusIkkunanKuuntelija(kali, this);

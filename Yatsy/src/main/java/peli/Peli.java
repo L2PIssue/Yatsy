@@ -1,13 +1,19 @@
 package peli;
 /**
- *
+ * luokka, joka sisältää pelilogiikan
  * @author Miia Rämö
  */
 public class Peli {
     private final Pelaaja pelaaja;
     public Noppa[] nopat;
     private final NoppaKombinaatiot kombinaatiot;
+    /**
+     * heittojen määrä, nollataan vuorojen välissä
+     */
     public int heittoja;
+    /**
+     * tällä voidaan seurata, missä vaiheessa peliä ollaan
+     */
     public int vuoro;
     
     public Peli() {
@@ -17,6 +23,9 @@ public class Peli {
         this.vuoro = 0;
     }
     
+    /**
+     * 
+     */
     public final void alustaNopat() {
         this.heittoja = 0;
         nopat = new Noppa[5];
@@ -25,6 +34,9 @@ public class Peli {
         }   
     }
     
+    /**
+     * kutsuu Noppa-olioiden heittometodia
+     */
     public void noppienHeitto() {
         if (heittoja < 3) {
             for (Noppa noppa : nopat) {
@@ -34,16 +46,21 @@ public class Peli {
         }
     }
     
+    /**
+     * kutsuu Pelaaja-olion pisteiden asetus -metosia
+     * @param paljonko lisättävä määrä
+     * @param mihin haluttu lokaatio pelaajan pistetaulukossa
+     */
     public void asetaPisteetPelaajalle(int paljonko, int mihin) {
         pelaaja.asetaPisteet(paljonko, mihin);
         vuoro++;
     }
     
+    /**
+     * @param index tutkittava lokaatio
+     * @return pisteet valitussa lokaatiossa
+     */
     public int getPelaajanPisteet(int index) {
         return pelaaja.getPisteet(index);
-    }
-    
-    public void nollaaHeitot() {
-        this.heittoja = 0;
     }
 }

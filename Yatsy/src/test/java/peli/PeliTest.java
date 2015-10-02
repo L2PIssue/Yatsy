@@ -23,13 +23,6 @@ public class PeliTest {
     }
     
     @Test
-    public void nollaaHeitotOikeasti() {
-        peli.noppienHeitto();
-        peli.nollaaHeitot();
-        assertEquals(0, peli.heittoja);
-    }
-    
-    @Test
     public void asettaaPisteetPelaajalleOikein() {
         peli.asetaPisteetPelaajalle(2, 0);
         assertEquals(2, peli.getPelaajanPisteet(0));

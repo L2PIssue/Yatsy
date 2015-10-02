@@ -2,26 +2,19 @@
 package peli;
 
 import java.util.ArrayList;
+
 /**
- *
+ * luokka, jolla tutkitaan sopiiko noppakombinaatio valittuun pistetaulukon ruutuun
  * @author Miia Rämö
  */
+
 public class NoppaKombinaatiot {
     
-    public int ykkoset(Noppa[] nopat) {
-        int ykkosia = 0;
-        ArrayList<Integer> luvut = new ArrayList();
-        for (int i = 0; i < 5; i++) {
-            luvut.add(nopat[i].getSilmaluku());
-        }
-        for (Integer luku : luvut) {
-            if (luku.equals(1)) {
-                ykkosia += luku;
-            }
-        }
-        return ykkosia;
-    }
-
+    /**
+     * tutkii ovatko noppien silmäluvut 1, 2, 3, 4 ja 5
+     * @param nopat tutkittavat nopat
+     * @return 15, jos kombinaatio sopii ruutuun,  muutoin 0
+     */
     public int pieniSuora(Noppa[] nopat) {
         ArrayList<Integer> luvut = new ArrayList();
         for (int i = 0; i < 5; i++) {
@@ -34,6 +27,11 @@ public class NoppaKombinaatiot {
         return 0;
     }
 
+    /**
+     * tutkii ovatko noppien silmäluvut 2, 3, 4, 5 ja 6
+     * @param nopat tutkittavat nopat
+     * @return 20, jos kombinaatio sopii ruutuun, muutoin 0
+     */
     public int suuriSuora(Noppa[] nopat) {
         ArrayList<Integer> luvut = new ArrayList();
         for (int i = 0; i < 5; i++) {
@@ -46,6 +44,12 @@ public class NoppaKombinaatiot {
         return 0;
     }
 
+    /**
+     * tutkii montako kappaletta annettua silmälukua on noppien joukossa
+     * @param nopat tutkittavat nopat
+     * @param numero tutkittava silmäluku
+     * @return sijoitettavat pisteet
+     */
     public int kombotYkkosistaKutosiin(Noppa[] nopat, int numero) {
         int summa = 0;
         for (Noppa noppa : nopat) {
@@ -56,7 +60,13 @@ public class NoppaKombinaatiot {
         return summa;
     }
     
-    public int montakoSamaaNumeroa(Noppa[] nopat, int numero) {
+    /**
+     * 
+     * @param nopat
+     * @param numero
+     * @return 
+     */
+    private int montakoSamaaNumeroa(Noppa[] nopat, int numero) {
         int maara = 0;
         for (Noppa noppa : nopat) {
             if (noppa.getSilmaluku() == numero) {

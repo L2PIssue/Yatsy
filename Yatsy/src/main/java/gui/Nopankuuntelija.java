@@ -2,22 +2,22 @@ package gui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import peli.Peli;
 /**
  *
  * @author Miia Rämö
  */
 public class Nopankuuntelija implements ActionListener {
-    private final Peli peli;
-    private int numero;
+    private final int numero;
+    private final Kayttoliittyma kali;
     
-    public Nopankuuntelija(Peli peli, int numero) {
-        this.peli = peli;
+    public Nopankuuntelija(Kayttoliittyma kali, int numero) {
         this.numero = numero;
+        this.kali = kali;
     }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        peli.nopat[numero].muutaLukitus();
+        kali.getPeli().nopat[numero].muutaLukitus();
+        kali.paivita();
     }
 }

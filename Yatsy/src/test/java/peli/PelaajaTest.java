@@ -55,17 +55,7 @@ public class PelaajaTest {
     
     @Test
     public void eiAsetaNegatiivisiaPisteita() {
-        assertEquals(false, pelaaja.asetaPisteet(-2, 0));
-    }
-    
-    @Test
-    public void eiAsetaPisteitaJosNeOnJoAsetettu() {
-        pelaaja.asetaPisteet(1, 0);
-        assertEquals(false, pelaaja.asetaPisteet(1, 0));
-    }
-    
-    @Test
-    public void asettaaPisteetJosNeOvatOikein() {
-        assertEquals(true, pelaaja.asetaPisteet(2, 0));
+        pelaaja.asetaPisteet(-2, 0);
+        assertEquals(false, pelaaja.getOnkoLisatty(0));
     }
 }

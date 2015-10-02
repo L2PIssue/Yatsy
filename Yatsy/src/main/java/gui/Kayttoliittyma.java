@@ -42,8 +42,8 @@ public class Kayttoliittyma implements Runnable {
         this.peli = new Peli();
         this.heittonappi = new JButton("Heitä nopat");
         this.heittonappi.addActionListener(new Nopanheittaja(this, peli));
-        this.kuvat = new ImageIcon[6];
-        for (int i = 0; i < 6; i++) {
+        this.kuvat = new ImageIcon[12];
+        for (int i = 0; i < 12; i++) {
             kuvat[i] = new ImageIcon("Grafiikat/noppa" + (i+1) + ".png");
         }
     }
@@ -81,7 +81,7 @@ public class Kayttoliittyma implements Runnable {
         }
         apuluku = 0;
         for (JButton nappi : napit) {
-            nappi.addActionListener(new HalutunKombonKuuntelija(this, peli, pistekombot.get(apuluku), nappi));
+            nappi.addActionListener(new HalutunKombonKuuntelija(this, pistekombot.get(apuluku), nappi));
             apuluku++;
         }
         return kombinaatiot;
@@ -104,7 +104,7 @@ public class Kayttoliittyma implements Runnable {
         noppiennapit = new JButton[5];
         for (int i = 0; i < 5; i++) {
             noppiennapit[i] = new JButton();
-            noppiennapit[i].addActionListener(new Nopankuuntelija(peli, i));
+            noppiennapit[i].addActionListener(new Nopankuuntelija(this, i));
         }
         this.asetaNopilleKuvat();
         nopat.setBackground(tausta);
@@ -148,14 +148,22 @@ public class Kayttoliittyma implements Runnable {
     
     private void asetaNopilleKuvat() {
         for (int i = 0; i < 5; i++) {
-            noppiennapit[i].setIcon(kuvat[peli.nopat[i].getSilmaluku() - 1]);
-            noppiennapit[i].setAlignmentX(Label.CENTER);
-            noppiennapit[i].setAlignmentY(Label.CENTER);
+            if (peli.nopat[i].onkoLukittu()) {
+                noppiennapit[i].setIcon(kuvat[peli.nopat[i].getSilmaluku() - 1 + 6]);
+            } else {
+                noppiennapit[i].setIcon(kuvat[peli.nopat[i].getSilmaluku() - 1]);
+                noppiennapit[i].setAlignmentX(Label.CENTER);
+                noppiennapit[i].setAlignmentY(Label.CENTER);
+            }
         }
     }
 
     public JFrame getFrame() {
         return frame;
+    }
+    
+    public Peli getPeli() {
+        return this.peli;
     }
     
     private ArrayList<String> lueTiedosto(File tiedosto) { 
