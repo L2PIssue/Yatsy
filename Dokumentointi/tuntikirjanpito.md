@@ -16,4 +16,4 @@ Pvm  | Käytetty aika | Mitä tehty?
 30.9.| 1h 	         | Pelimukavuuden parantamiseksi lukituille nopille omat kuvat
 2.10.| 2h	           | Luokkakaavio päivitetty, pari sekvenssikaaviota, koodin muokkailua
 5.10.| 1h            | Testejä kattavammiksi
-9.10.| 2h            | Peli-luokan julkiset nopat yksityisiksi. Uusi sekvenssikaavio.
+9.10.| 2h            | Peli-luokan julkiset nopat yksityisiksi. Uusi sekvenssikaavio sekä lukituille nopille hienommat kuvat.
