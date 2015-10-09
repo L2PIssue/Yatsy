@@ -1,13 +1,13 @@
 package gui;
 /**
- *
+ * noppien heiton suorittavan napin kuuntelija
  * @author Miia Rämö
  */
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Nopanheittaja implements ActionListener {
-    private Kayttoliittyma kali;
+    private final Kayttoliittyma kali;
     
     public Nopanheittaja(Kayttoliittyma kali) {
         this.kali = kali;
@@ -16,7 +16,7 @@ public class Nopanheittaja implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent ae) {
         kali.getPeli().noppienHeitto();
-        if (kali.getPeli().heittoja == 2) {
+        if (kali.getPeli().getHeitot() == 2) {
             kali.lukitseNoppienNapit();
         }
         kali.paivita();

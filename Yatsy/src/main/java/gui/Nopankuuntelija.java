@@ -3,7 +3,7 @@ package gui;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 /**
- *
+ * kuuntelee noppien painalluksia ja muuttaa niiden lukituksen
  * @author Miia Rämö
  */
 public class Nopankuuntelija implements ActionListener {

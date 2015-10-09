@@ -1,7 +1,7 @@
 
 package gui;
 /**
- *
+ * luokka, joka luo pelin visuaalisen ilmeen
  * @author Miia Rämö
  */
 import java.awt.BorderLayout;
@@ -26,11 +26,11 @@ public class Kayttoliittyma implements Runnable {
     private ArrayList<String> pistekombot;
     private JButton[] noppiennapit;
     private JTextField[] pisteet;
-    private ImageIcon[] kuvat;
-    private JFrame frame;
+    private final ImageIcon[] kuvat;
+    private final JFrame frame;
     private Scanner lukija;
-    private Color tausta;
-    private Peli peli;
+    private final Color tausta;
+    private final Peli peli;
     private Container container;
     public JButton heittonappi;
     private IlmoitusIkkuna ilmoitus;
@@ -55,7 +55,11 @@ public class Kayttoliittyma implements Runnable {
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         luoKomponentit(frame.getContentPane());
     }
-
+    
+    /**
+     * lisää tarvittavat koponentit säiliöön
+     * @param container säiliö, johon lisätään
+     */
     private void luoKomponentit(Container container) {
         container.setBackground(tausta);
         container.add(pisteKombinaatiot(), BorderLayout.WEST);
@@ -66,6 +70,12 @@ public class Kayttoliittyma implements Runnable {
         frame.setVisible(true);
     }
     
+    /**
+     * luo JPanel-olion, joka sisältää napit valittaville pistekombinaatioille
+     * välisumman, bonuksen sekä loppusumman napit eivät ole painettavissa, 
+     * vaan ne lasketaan pelin edetessä automaattisesti
+     * @return valittavat kombot sisältävä JPanel
+     */
     private JPanel pisteKombinaatiot() {
         JButton[] napit = new JButton[18];
         int apuluku = 0;
@@ -87,6 +97,10 @@ public class Kayttoliittyma implements Runnable {
         return kombinaatiot;
     }
     
+    /**
+     * luo JPanel-olion, joka sisältää tekstikentät, jotka kertovat kunkin pistesarakkeen pisteet
+     * @return pisteruudut sisältävä JPanel
+     */
     private JPanel pisteSarake() {
         JPanel pistesarake = new JPanel(new GridLayout(18, 1));
         pisteet = new JTextField[18];
@@ -99,6 +113,10 @@ public class Kayttoliittyma implements Runnable {
         return pistesarake;
     }
     
+    /**
+     * luo JPanel-olion, joka sisältää napit nopille
+     * @return nopat sisältävä JPanel
+     */
     private JPanel noppienNappulat() {
         JPanel nopat = new JPanel(new GridLayout(1, 5));
         noppiennapit = new JButton[5];
@@ -114,6 +132,9 @@ public class Kayttoliittyma implements Runnable {
         return nopat;
     }
     
+    /**
+     * lukitsee noppien napit
+     */
     public void lukitseNoppienNapit() {
         for (JButton nappi : noppiennapit) {
             nappi.setEnabled(false);
@@ -121,6 +142,9 @@ public class Kayttoliittyma implements Runnable {
         heittonappi.setEnabled(false);
     }
     
+    /**
+     * vapauttaa noppien napit lukosta
+     */
     public void vapautaNoppienNapit() {
         for (JButton nappi : noppiennapit) {
             nappi.setEnabled(true);
@@ -128,15 +152,18 @@ public class Kayttoliittyma implements Runnable {
         heittonappi.setEnabled(true);
     }
     
+    /**
+     * päivittää käyttöliittymän vuoron lopussa sekä noppia heitettäessä ja lukittaessa
+     */
     public void paivita() {
-        if (peli.vuoro == 15) {
+        if (peli.getVuoro() == 15) {
             this.ilmoitus = new IlmoitusIkkuna(this, "Lopputuloksesi on " + peli.getPelaajanPisteet(17) + " pistettä.");
         }
         for (int i = 0; i < 5; i++) {
             this.asetaNopilleKuvat();
-            if (peli.heittoja == 2) {
-                if (peli.getNopat[i].onkoLukittu()) {
-                    peli.getNopat[i].muutaLukitus();
+            if (peli.getHeitot() == 2) {
+                if (peli.getNopat()[i].onkoLukittu()) {
+                    peli.getNopat()[i].muutaLukitus();
                 }
             }
         }
@@ -146,12 +173,15 @@ public class Kayttoliittyma implements Runnable {
         frame.repaint();
     }
     
+    /**
+     * asettaa nopille kuvat sen mukaan, ovatko ne lukossa vai ei
+     */
     private void asetaNopilleKuvat() {
         for (int i = 0; i < 5; i++) {
-            if (peli.getNopat[i].onkoLukittu()) {
-                noppiennapit[i].setIcon(kuvat[peli.getNopat[i].getSilmaluku() - 1 + 6]);
+            if (peli.getNopat()[i].onkoLukittu()) {
+                noppiennapit[i].setIcon(kuvat[peli.getNopat()[i].getSilmaluku() - 1 + 6]);
             } else {
-                noppiennapit[i].setIcon(kuvat[peli.getNopat[i].getSilmaluku() - 1]);
+                noppiennapit[i].setIcon(kuvat[peli.getNopat()[i].getSilmaluku() - 1]);
                 noppiennapit[i].setAlignmentX(Label.CENTER);
                 noppiennapit[i].setAlignmentY(Label.CENTER);
             }
@@ -166,6 +196,11 @@ public class Kayttoliittyma implements Runnable {
         return this.peli;
     }
     
+    /**
+     * lukee parametrina annetun tiedoston
+     * @param tiedosto luettava tiedosto
+     * @return palauttaa ArrayList:in String-olioita
+     */
     private ArrayList<String> lueTiedosto(File tiedosto) { 
         this.pistekombot = new ArrayList();
         try {

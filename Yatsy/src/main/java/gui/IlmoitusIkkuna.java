@@ -7,7 +7,10 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
-
+/**
+ * toimii ikkunana, josta uusi peli käynnistetään, pelin jälkeen ilmoittaa lopputuloksen
+ * @author Miia Rämö
+ */
 public class IlmoitusIkkuna implements Runnable {
     private final Kayttoliittyma kali;
     private final JFrame frame = new JFrame("Yatsy");

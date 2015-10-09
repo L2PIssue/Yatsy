@@ -61,10 +61,11 @@ public class NoppaKombinaatiot {
     }
     
     /**
-     * 
-     * @param nopat
-     * @param numero
-     * @return 
+     * käytetään apuna muita kombinaatioita tutkittaessa,
+     * jotta nähdään montako jotain lukua on noppien joukossa
+     * @param nopat tutkittavat nopat
+     * @param numero tutkittava silmäluku
+     * @return löydettyjen samojen silmälukujen määrä
      */
     private int montakoSamaaNumeroa(Noppa[] nopat, int numero) {
         int maara = 0;
@@ -76,6 +77,11 @@ public class NoppaKombinaatiot {
         return maara;
     }
 
+    /**
+     * tutkii suurimmasta pienimpään, löytyykö noppien joukosta kolme samaa silmälukua
+     * @param nopat tutkittavat nopat
+     * @return nolla jos ei löydy kolmea tai enemmän, muuten silmälukujen summa
+     */
     public int kolmeSamanlaista(Noppa[] nopat) {
         int summa = 0;
         for (int i = 6; i > 0; i--) {
@@ -86,7 +92,12 @@ public class NoppaKombinaatiot {
         }
         return summa;
     }
-
+    
+    /**
+     * tutkii suurimmasta pienimpään, löytyykö noppien joukosta neljä samaa silmälukua
+     * @param nopat tutkittavat nopat
+     * @return nolla jos ei löydy neljää tai enemmän, muuten silmälukujen summa
+     */
     public int neljaSamanlaista(Noppa[] nopat) {
         int summa = 0;
         for (int i = 6; i > 0; i--) {
@@ -97,7 +108,12 @@ public class NoppaKombinaatiot {
         }
         return summa;
     }
-
+    
+    /**
+     * tutkii suurimmasta pienimpään, löytyykö noppien joukosta pari
+     * @param nopat tutkittavat nopat
+     * @return nolla jos ei löydy kahta tai useampaa, muuten parin silmälukujen summa
+     */
     public int yksiPari(Noppa[] nopat) {
         for (int i = 6; i >= 1; i--) {
             if (montakoSamaaNumeroa(nopat, i) >= 2) {
@@ -106,7 +122,12 @@ public class NoppaKombinaatiot {
         }
         return 0;
     }
-
+    
+    /**
+     * tutkii suurimmasta pienimpään, löytyykö noppien joukosta kaksi eri silmälukujen paria
+     * @param nopat tutkittavat nopat
+     * @return nolla jos ei löydy pareja, muuten parien silmälukujen summa
+     */
     public int kaksiParia(Noppa[] nopat) {
         int parienMaara = 0;
         int summa = 0;
@@ -122,7 +143,13 @@ public class NoppaKombinaatiot {
         }
         return 0;
     }
-
+    
+    /**
+     * tutkii suurimmasta pienimpään, löytyykö noppien joukosta kolme samaa silmälukua
+     * sekä jonkin toisen silmäluvun muodostama pari
+     * @param nopat tutkittavat nopat
+     * @return nolla jos ei löydy paria sekä kolmea, muuten silmälukujen summa
+     */
     public int tayskasi(Noppa[] nopat) {
         int montakoLoydetty = 0;
         int summa = 0;
@@ -146,6 +173,11 @@ public class NoppaKombinaatiot {
         return 0;
     }
 
+    /**
+     * tutkii ovatko kaikki nopat samaa silmälukua
+     * @param nopat tutkittavat nopat
+     * @return nolla jos kaikki eivät ole samoja, muuten 50 pistettä
+     */
     public int yatsy(Noppa[] nopat) {
         int ekaNoppa = nopat[0].getSilmaluku();
         for (Noppa noppa : nopat) {
@@ -156,13 +188,16 @@ public class NoppaKombinaatiot {
         return 50;
     }
 
+    /**
+     * laskee kaikkien viiden nopan silmälukujen summan sattumaa varten
+     * @param nopat tutkittavat nopat
+     * @return tutkittavien noppien silmälukujen summa
+     */
     public int sattuma(Noppa[] nopat) {
         int summa = 0;
         for (Noppa noppa : nopat) {
             summa += noppa.getSilmaluku();
         }
         return summa;
-
     }
-
 }

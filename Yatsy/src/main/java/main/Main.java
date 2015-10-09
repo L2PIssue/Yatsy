@@ -4,7 +4,7 @@ package main;
 import gui.IlmoitusIkkuna;
 import javax.swing.SwingUtilities;
 /**
- *
+ * käynnistää ikkunan, josta pelin pääsee käynnistämään
  * @author Miia Rämö
  */
 public class Main {

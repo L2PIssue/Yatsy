@@ -19,7 +19,7 @@ public class PeliTest {
     @Test
     public void noppienHeittoKasvattaaHeittojenMaaraa() {
         peli.noppienHeitto();
-        assertEquals(1, peli.heittoja);
+        assertEquals(1, peli.getHeitot());
     }
     
     @Test
@@ -30,15 +30,15 @@ public class PeliTest {
     
     @Test
     public void eiHeitaNoppiaJosHeittojaOnJoKolme() {
-        peli.heittoja = 3;
+        peli.setHeitot(3);
         peli.noppienHeitto();
-        assertEquals(3, peli.heittoja);
+        assertEquals(3, peli.getHeitot());
     }
     
     @Test
     public void pisteidenAsetusKasvattaaVuoronNumeroa() {
-        peli.vuoro = 1;
+        peli.setVuoro(1);
         peli.asetaPisteetPelaajalle(1, 0);
-        assertEquals(2, peli.vuoro);
+        assertEquals(2, peli.getVuoro());
     }
 }

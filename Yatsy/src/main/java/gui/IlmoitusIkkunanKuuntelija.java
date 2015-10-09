@@ -6,18 +6,18 @@ import java.awt.event.ActionListener;
 import javax.swing.SwingUtilities;
 
 /**
- *
+ * aloitusikkunan napin kuuntelija
  * @author Miia Rämö
  */
 public class IlmoitusIkkunanKuuntelija implements ActionListener {
-    private Kayttoliittyma vanha;
-    private IlmoitusIkkuna ikkuna;
+    private final Kayttoliittyma vanha;
+    private final IlmoitusIkkuna ikkuna;
     
     public IlmoitusIkkunanKuuntelija(Kayttoliittyma vanha, IlmoitusIkkuna ikkuna) {
         this.vanha = vanha;
         this.ikkuna = ikkuna;
     }
-
+    
     @Override
     public void actionPerformed(ActionEvent ae) {
         if (vanha != null) {

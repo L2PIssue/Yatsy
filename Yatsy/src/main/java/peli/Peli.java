@@ -5,16 +5,10 @@ package peli;
  */
 public class Peli {
     private final Pelaaja pelaaja;
-    public Noppa[] getNopat;
+    private Noppa[] nopat;
     private final NoppaKombinaatiot kombinaatiot;
-    /**
-     * heittojen määrä, nollataan vuorojen välissä
-     */
-    public int heittoja;
-    /**
-     * tällä voidaan seurata, missä vaiheessa peliä ollaan
-     */
-    public int vuoro;
+    private int heittoja;
+    private int vuoro;
     
     public Peli() {
         this.alustaNopat();
@@ -24,17 +18,30 @@ public class Peli {
     }
     
     public Noppa[] getNopat() {
-        return this.getNopat;
+        return this.nopat;
     }
     
-    /**
-     * 
-     */
+    public int getHeitot() {
+        return this.heittoja;
+    }
+    
+    public void setHeitot(int luku) {
+        this.heittoja = luku;
+    }
+    
+    public int getVuoro() {
+        return this.vuoro;
+    }
+    
+    public void setVuoro(int luku) {
+        this.vuoro = luku;
+    }
+    
     public final void alustaNopat() {
         this.heittoja = 0;
-        getNopat = new Noppa[5];
+        this.nopat = new Noppa[5];
         for (int i = 0; i < 5; i++) {
-            getNopat[i] = new Noppa();
+            nopat[i] = new Noppa();
         }   
     }
     
@@ -43,7 +50,7 @@ public class Peli {
      */
     public void noppienHeitto() {
         if (heittoja < 3) {
-            for (Noppa noppa : getNopat) {
+            for (Noppa noppa : nopat) {
                 noppa.heitaNoppa();
             }
             heittoja++;
