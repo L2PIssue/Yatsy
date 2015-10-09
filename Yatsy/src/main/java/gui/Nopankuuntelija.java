@@ -17,7 +17,7 @@ public class Nopankuuntelija implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        kali.getPeli().nopat[numero].muutaLukitus();
+        kali.getPeli().getNopat()[numero].muutaLukitus();
         kali.paivita();
     }
 }

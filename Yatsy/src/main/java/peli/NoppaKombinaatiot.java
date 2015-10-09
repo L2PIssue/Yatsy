@@ -90,7 +90,7 @@ public class NoppaKombinaatiot {
     public int neljaSamanlaista(Noppa[] nopat) {
         int summa = 0;
         for (int i = 6; i > 0; i--) {
-            if (montakoSamaaNumeroa(nopat, i) == 4) {
+            if (montakoSamaaNumeroa(nopat, i) >= 4) {
                 summa = 4 * i;
                 return summa;
             }
@@ -123,7 +123,7 @@ public class NoppaKombinaatiot {
         return 0;
     }
 
-    public int taysikasi(Noppa[] nopat) {
+    public int tayskasi(Noppa[] nopat) {
         int montakoLoydetty = 0;
         int summa = 0;
         for (int i = 6; i >= 1; i--) {

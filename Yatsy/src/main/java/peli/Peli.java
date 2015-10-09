@@ -5,7 +5,7 @@ package peli;
  */
 public class Peli {
     private final Pelaaja pelaaja;
-    public Noppa[] nopat;
+    public Noppa[] getNopat;
     private final NoppaKombinaatiot kombinaatiot;
     /**
      * heittojen määrä, nollataan vuorojen välissä
@@ -23,14 +23,18 @@ public class Peli {
         this.vuoro = 0;
     }
     
+    public Noppa[] getNopat() {
+        return this.getNopat;
+    }
+    
     /**
      * 
      */
     public final void alustaNopat() {
         this.heittoja = 0;
-        nopat = new Noppa[5];
+        getNopat = new Noppa[5];
         for (int i = 0; i < 5; i++) {
-            nopat[i] = new Noppa();
+            getNopat[i] = new Noppa();
         }   
     }
     
@@ -39,7 +43,7 @@ public class Peli {
      */
     public void noppienHeitto() {
         if (heittoja < 3) {
-            for (Noppa noppa : nopat) {
+            for (Noppa noppa : getNopat) {
                 noppa.heitaNoppa();
             }
             heittoja++;

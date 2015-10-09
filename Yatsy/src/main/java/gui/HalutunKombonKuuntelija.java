@@ -26,49 +26,49 @@ public class HalutunKombonKuuntelija  implements ActionListener {
     public void actionPerformed(ActionEvent ae) {
         switch (kombo) {
             case "Ykköset":
-                kali.getPeli().asetaPisteetPelaajalle(kombot.kombotYkkosistaKutosiin(kali.getPeli().nopat, 1), 0);
+                kali.getPeli().asetaPisteetPelaajalle(kombot.kombotYkkosistaKutosiin(kali.getPeli().getNopat, 1), 0);
                 break;
             case "Kakkoset":
-                kali.getPeli().asetaPisteetPelaajalle(kombot.kombotYkkosistaKutosiin(kali.getPeli().nopat, 2), 1);
+                kali.getPeli().asetaPisteetPelaajalle(kombot.kombotYkkosistaKutosiin(kali.getPeli().getNopat, 2), 1);
                 break;
             case "Kolmoset":
-                kali.getPeli().asetaPisteetPelaajalle(kombot.kombotYkkosistaKutosiin(kali.getPeli().nopat, 3), 2);
+                kali.getPeli().asetaPisteetPelaajalle(kombot.kombotYkkosistaKutosiin(kali.getPeli().getNopat, 3), 2);
                 break;
             case "Neloset":
-                kali.getPeli().asetaPisteetPelaajalle(kombot.kombotYkkosistaKutosiin(kali.getPeli().nopat, 4), 3);
+                kali.getPeli().asetaPisteetPelaajalle(kombot.kombotYkkosistaKutosiin(kali.getPeli().getNopat, 4), 3);
                 break;
             case "Vitoset":
-                kali.getPeli().asetaPisteetPelaajalle(kombot.kombotYkkosistaKutosiin(kali.getPeli().nopat, 5), 4);
+                kali.getPeli().asetaPisteetPelaajalle(kombot.kombotYkkosistaKutosiin(kali.getPeli().getNopat, 5), 4);
                 break;
             case "Kutoset":
-                kali.getPeli().asetaPisteetPelaajalle(kombot.kombotYkkosistaKutosiin(kali.getPeli().nopat, 6), 5);
+                kali.getPeli().asetaPisteetPelaajalle(kombot.kombotYkkosistaKutosiin(kali.getPeli().getNopat, 6), 5);
                 break;
             case "Yksi pari":
-                kali.getPeli().asetaPisteetPelaajalle(kombot.yksiPari(kali.getPeli().nopat), 8);
+                kali.getPeli().asetaPisteetPelaajalle(kombot.yksiPari(kali.getPeli().getNopat), 8);
                 break;
             case "Kaksi paria":
-                kali.getPeli().asetaPisteetPelaajalle(kombot.kaksiParia(kali.getPeli().nopat), 9);
+                kali.getPeli().asetaPisteetPelaajalle(kombot.kaksiParia(kali.getPeli().getNopat), 9);
                 break;
             case "Kolme samaa":
-                kali.getPeli().asetaPisteetPelaajalle(kombot.kolmeSamanlaista(kali.getPeli().nopat), 10);
+                kali.getPeli().asetaPisteetPelaajalle(kombot.kolmeSamanlaista(kali.getPeli().getNopat), 10);
                 break;
             case "Neljä samaa":
-                kali.getPeli().asetaPisteetPelaajalle(kombot.neljaSamanlaista(kali.getPeli().nopat), 11);
+                kali.getPeli().asetaPisteetPelaajalle(kombot.neljaSamanlaista(kali.getPeli().getNopat), 11);
                 break;
             case "Pieni suora":
-                kali.getPeli().asetaPisteetPelaajalle(kombot.pieniSuora(kali.getPeli().nopat), 12);
+                kali.getPeli().asetaPisteetPelaajalle(kombot.pieniSuora(kali.getPeli().getNopat), 12);
                 break;
             case "Suuri suora":
-                kali.getPeli().asetaPisteetPelaajalle(kombot.suuriSuora(kali.getPeli().nopat), 13);
+                kali.getPeli().asetaPisteetPelaajalle(kombot.suuriSuora(kali.getPeli().getNopat), 13);
                 break;
             case "Täyskäsi":
-                kali.getPeli().asetaPisteetPelaajalle(kombot.taysikasi(kali.getPeli().nopat), 14);
+                kali.getPeli().asetaPisteetPelaajalle(kombot.tayskasi(kali.getPeli().getNopat), 14);
                 break;
             case "Yatsy":
-                kali.getPeli().asetaPisteetPelaajalle(kombot.yatsy(kali.getPeli().nopat), 15);
+                kali.getPeli().asetaPisteetPelaajalle(kombot.yatsy(kali.getPeli().getNopat), 15);
                 break;
             case "Sattuma":
-                kali.getPeli().asetaPisteetPelaajalle(kombot.sattuma(kali.getPeli().nopat), 16);
+                kali.getPeli().asetaPisteetPelaajalle(kombot.sattuma(kali.getPeli().getNopat), 16);
                 break;
         }
         kali.getPeli().alustaNopat();

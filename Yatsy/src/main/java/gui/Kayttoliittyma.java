@@ -135,8 +135,8 @@ public class Kayttoliittyma implements Runnable {
         for (int i = 0; i < 5; i++) {
             this.asetaNopilleKuvat();
             if (peli.heittoja == 2) {
-                if (peli.nopat[i].onkoLukittu()) {
-                    peli.nopat[i].muutaLukitus();
+                if (peli.getNopat[i].onkoLukittu()) {
+                    peli.getNopat[i].muutaLukitus();
                 }
             }
         }
@@ -148,10 +148,10 @@ public class Kayttoliittyma implements Runnable {
     
     private void asetaNopilleKuvat() {
         for (int i = 0; i < 5; i++) {
-            if (peli.nopat[i].onkoLukittu()) {
-                noppiennapit[i].setIcon(kuvat[peli.nopat[i].getSilmaluku() - 1 + 6]);
+            if (peli.getNopat[i].onkoLukittu()) {
+                noppiennapit[i].setIcon(kuvat[peli.getNopat[i].getSilmaluku() - 1 + 6]);
             } else {
-                noppiennapit[i].setIcon(kuvat[peli.nopat[i].getSilmaluku() - 1]);
+                noppiennapit[i].setIcon(kuvat[peli.getNopat[i].getSilmaluku() - 1]);
                 noppiennapit[i].setAlignmentX(Label.CENTER);
                 noppiennapit[i].setAlignmentY(Label.CENTER);
             }
