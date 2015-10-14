@@ -38,13 +38,13 @@ public class Kayttoliittyma implements Runnable {
     public Kayttoliittyma() {
         frame = new JFrame("Yatsy");
         this.tausta = new Color(55,176,107);
-        this.lueTiedosto(new File("pistekombot.txt"));
+        this.lueTiedosto(new File("src/pistekombot.txt"));
         this.peli = new Peli();
         this.heittonappi = new JButton("Heitä nopat");
         this.heittonappi.addActionListener(new Nopanheittaja(this));
         this.kuvat = new ImageIcon[12];
         for (int i = 0; i < 12; i++) {
-            kuvat[i] = new ImageIcon("Grafiikat/noppa" + (i+1) + ".png");
+            kuvat[i] = new ImageIcon("src/Grafiikat/noppa" + (i+1) + ".png");
         }
     }
 
