@@ -10,9 +10,16 @@ import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.Label;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -31,23 +38,23 @@ public class Kayttoliittyma implements Runnable {
     private Scanner lukija;
     private final Color tausta;
     private final Peli peli;
-    private Container container;
     public JButton heittonappi;
     private IlmoitusIkkuna ilmoitus;
 
     public Kayttoliittyma() {
         frame = new JFrame("Yatsy");
         this.tausta = new Color(55,176,107);
-        this.lueTiedosto(new File("src/pistekombot.txt"));
+        File tiedosto = new File(this.getClass().getResource("/pistekombot.txt").getFile());
+        this.lueTiedosto(tiedosto);
         this.peli = new Peli();
         this.heittonappi = new JButton("Heitä nopat");
         this.heittonappi.addActionListener(new Nopanheittaja(this));
         this.kuvat = new ImageIcon[12];
         for (int i = 0; i < 12; i++) {
-            kuvat[i] = new ImageIcon("src/Grafiikat/noppa" + (i+1) + ".png");
+            kuvat[i] = new ImageIcon(this.getClass().getResource("/grafiikat/noppa" + (i+1) + ".png"));
         }
     }
-
+    
     @Override
     public void run() {
         frame.setPreferredSize(new Dimension(300, 540));
@@ -203,6 +210,7 @@ public class Kayttoliittyma implements Runnable {
      */
     private ArrayList<String> lueTiedosto(File tiedosto) { 
         this.pistekombot = new ArrayList();
+        
         try {
             lukija = new Scanner(tiedosto);
         } catch (Exception e) {
