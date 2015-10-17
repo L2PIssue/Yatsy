@@ -4,28 +4,12 @@ package gui;
  * luokka, joka luo pelin visuaalisen ilmeen
  * @author Miia Rämö
  */
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.GridLayout;
-import java.awt.Label;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.WindowConstants;
+import java.awt.*;
+import java.io.*;
+import java.util.*;
+import java.util.logging.*;
+import javax.imageio.ImageIO;
+import javax.swing.*;
 import peli.Peli;
 
 public class Kayttoliittyma implements Runnable {
@@ -44,14 +28,19 @@ public class Kayttoliittyma implements Runnable {
     public Kayttoliittyma() {
         frame = new JFrame("Yatsy");
         this.tausta = new Color(55,176,107);
-        File tiedosto = new File(this.getClass().getResource("/pistekombot.txt").getFile());
+        InputStream tiedosto = this.getClass().getResourceAsStream("/pistekombot.txt");
         this.lueTiedosto(tiedosto);
         this.peli = new Peli();
         this.heittonappi = new JButton("Heitä nopat");
         this.heittonappi.addActionListener(new Nopanheittaja(this));
         this.kuvat = new ImageIcon[12];
         for (int i = 0; i < 12; i++) {
-            kuvat[i] = new ImageIcon(this.getClass().getResource("/grafiikat/noppa" + (i+1) + ".png"));
+            InputStream ico = this.getClass().getResourceAsStream("/grafiikat/noppa" + (i+1) + ".png");
+            try {
+                kuvat[i] = new ImageIcon(ImageIO.read(ico));
+            } catch (IOException ex) {
+                Logger.getLogger(Kayttoliittyma.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
     
@@ -208,7 +197,7 @@ public class Kayttoliittyma implements Runnable {
      * @param tiedosto luettava tiedosto
      * @return palauttaa ArrayList:in String-olioita
      */
-    private ArrayList<String> lueTiedosto(File tiedosto) { 
+    private ArrayList<String> lueTiedosto(InputStream tiedosto) { 
         this.pistekombot = new ArrayList();
         
         try {
