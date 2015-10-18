@@ -23,7 +23,6 @@ public class Kayttoliittyma implements Runnable {
     private final Color tausta;
     private final Peli peli;
     public JButton heittonappi;
-    private IlmoitusIkkuna ilmoitus;
 
     public Kayttoliittyma() {
         frame = new JFrame("Yatsy");
@@ -153,7 +152,7 @@ public class Kayttoliittyma implements Runnable {
      */
     public void paivita() {
         if (peli.getVuoro() == 15) {
-            this.ilmoitus = new IlmoitusIkkuna(this, "Lopputuloksesi on " + peli.getPelaajanPisteet(17) + " pistettä.");
+            IlmoitusIkkuna ilmoitus = new IlmoitusIkkuna(this, "Lopputuloksesi on " + peli.getPelaajanPisteet(17) + " pistettä.");
         }
         for (int i = 0; i < 5; i++) {
             this.asetaNopilleKuvat();

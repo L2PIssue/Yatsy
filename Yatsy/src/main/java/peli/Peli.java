@@ -6,14 +6,12 @@ package peli;
 public class Peli {
     private final Pelaaja pelaaja;
     private Noppa[] nopat;
-    private final NoppaKombinaatiot kombinaatiot;
     private int heittoja;
     private int vuoro;
     
     public Peli() {
         this.alustaNopat();
         this.pelaaja = new Pelaaja();
-        this.kombinaatiot = new NoppaKombinaatiot();
         this.vuoro = 0;
     }
     

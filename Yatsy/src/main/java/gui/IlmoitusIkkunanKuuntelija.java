@@ -10,18 +10,16 @@ import javax.swing.SwingUtilities;
  * @author Miia Rämö
  */
 public class IlmoitusIkkunanKuuntelija implements ActionListener {
-    private final Kayttoliittyma vanha;
     private final IlmoitusIkkuna ikkuna;
     
-    public IlmoitusIkkunanKuuntelija(Kayttoliittyma vanha, IlmoitusIkkuna ikkuna) {
-        this.vanha = vanha;
+    public IlmoitusIkkunanKuuntelija(IlmoitusIkkuna ikkuna) {
         this.ikkuna = ikkuna;
     }
     
     @Override
     public void actionPerformed(ActionEvent ae) {
-        if (vanha != null) {
-            vanha.getFrame().dispose();
+        if (ikkuna.getKali() != null) {
+            ikkuna.getKali().getFrame().dispose();
         }
         
         Kayttoliittyma kali = new Kayttoliittyma();

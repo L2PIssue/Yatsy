@@ -16,13 +16,11 @@ public class IlmoitusIkkuna implements Runnable {
     private final JFrame frame = new JFrame("Yatsy");
     private final JPanel panel = new JPanel();
     private final JButton aloituspainike;
-    private final IlmoitusIkkunanKuuntelija kuuntelija;
 
     public IlmoitusIkkuna(Kayttoliittyma kali, String ilmoitus) {
-        this.kuuntelija = new IlmoitusIkkunanKuuntelija(kali, this);
         this.kali = kali;
         aloituspainike = new JButton("Aloita uusi peli");
-        aloituspainike.addActionListener(kuuntelija);
+        aloituspainike.addActionListener(new IlmoitusIkkunanKuuntelija(this));
         panel.setLayout(new BorderLayout());
         panel.add(new JLabel(ilmoitus), BorderLayout.CENTER);
         panel.add(aloituspainike, BorderLayout.SOUTH);
@@ -40,6 +38,10 @@ public class IlmoitusIkkuna implements Runnable {
     
     public JFrame getFrame() {
         return this.frame;
+    }
+    
+    public Kayttoliittyma getKali() {
+        return this.kali;
     }
     
 }
